@@ -9,14 +9,14 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-#使用官方的 Debian你
-debian：最新
+# 设置工作目录
+WORKDIR /app
 
-合约制造部
-运行apt-get update&&apt-get install-y\
+# 复制编译脚本到容器中
+COPY build.sh /app/build.sh
 
-构建-必需\
-git \
+# 赋予编译脚本执行权限
+RUN chmod +x /app/build.sh
 
-wget \
-卷曲\
+# 运行编译脚本
+CMD ["/app/build.sh"]

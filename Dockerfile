@@ -13,10 +13,10 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # 复制编译脚本到容器中
-COPY build.sh /app/build.sh
+COPY install.sh /app/install.sh
 
 # 赋予编译脚本执行权限
-RUN chmod +x /app/build.sh
+RUN chmod +x /app/install.sh
 
 # 运行编译脚本
-CMD ["/app/build.sh"]
+CMD ["/app/install.sh"]
